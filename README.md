@@ -3,6 +3,8 @@
 Support for Audio Streams in Flutter. Capable of streaming Linear PCM format with a bit depth of 16 bits
 and 32 bits. Streams microphone audio data as Stream<List<Int>>.
 
+![Pub](https://img.shields.io/pub/v/audio_streams.svg?color=orange)
+
 iOS only for now!
 
 Make sure that your App is created with Swift support! If not, then create a new empty project with swift support, by using the following command:
