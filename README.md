@@ -1,26 +1,30 @@
 # audio_streams
 
-Support for Audio Streams in Flutter
+Support for Audio Streams in Flutter. Capable of streaming Linear PCM format with a bit depth of 16 bits
+and 32 bits. Streams microphone audio data as Stream<List<Int>>.
 
 iOS only for now!
 
-Make sure that your App is using swift by using the following command:
+Make sure that your App is created with Swift support! If not, then create a new empty project with swift support, by using the following command:
 
 ```
-flutter create -i swift
+flutter create -i swift <project_name>
 ```
-## Stream Types
 
-Can only stream Linear PCM with a bit depth of 16 bits or 32 bits
+Then, copy over all your .dart files, assets & pubspec
+
+## Stream Type
+
+Linear PCM with a configurable bit depth of 16 or 32 bits
 
 ## Installation
 
-Open `pubspec.yaml` and adding `audio_streams` as a dependency
+Open `pubspec.yaml` and add `audio_streams` as a dependency
 
 ### iOS
 
-Add a row to the following file `ios/Runner/Info.plist` and put the key for
-the microphone there
+Add a row to the following file `ios/Runner/Info.plist` and put in the key for
+the microphone
 
 ```xml
 <key>NSMicrophoneUsageDescription</key>
@@ -35,9 +39,10 @@ Not Supported
 
 
 ```dart
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:cloud_speech/cloud_speech.dart';
+import 'dart:async';
+
+import 'package:audio_streams/audio_streams.dart';
 
 void main() => runApp(MyApp());
 
@@ -52,13 +57,16 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    controller = new AudioController(CommonFormat.Int16, 8000, 2, true);
+    controller = new AudioController(CommonFormat.Int16, 16000, 1, true);
     initAudio();
   }
 
+  // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initAudio() async {
-      await controller.intialize();
-      controller.startAudioStream();
+    await controller.intialize();
+    controller.startAudioStream().listen((onData) {
+      print(onData);
+    });
   }
 
   @override
@@ -67,16 +75,6 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Plugin example app'),
-        ),
-        body: Builder(
-          builder: (context) {
-            return RaisedButton(
-              onPressed: () {
-                controller.stopAudioStream();
-              },
-              child: Text('Stop'),
-            );
-          },
         ),
       ),
     );
