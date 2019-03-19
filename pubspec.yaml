@@ -1,5 +1,7 @@
 name: audio_streams
-description: Support for Audio Streams in Flutter
+description: Support for Audio Streams in Flutter via AudioController class. Capable of streaming only Linear PCM format
+with a bit depth of 16 bits and 32 bits. Streams microphone audio data from microphone to Dart. 
+          
 version: 1.0.0
 authors:
   - Rishab Nayak <rishab@bu.edu>
