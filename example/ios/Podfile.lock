@@ -1,0 +1,22 @@
+PODS:
+  - audio_streams (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+
+DEPENDENCIES:
+  - audio_streams (from `.symlinks/plugins/audio_streams/ios`)
+  - Flutter (from `.symlinks/flutter/ios`)
+
+EXTERNAL SOURCES:
+  audio_streams:
+    :path: ".symlinks/plugins/audio_streams/ios"
+  Flutter:
+    :path: ".symlinks/flutter/ios"
+
+SPEC CHECKSUMS:
+  audio_streams: aa87b18b9ecf638f5b9528f60d6fbe330d1e79df
+  Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
+
+PODFILE CHECKSUM: ebd43b443038e611b86ede96e613bd6033c49497
+
+COCOAPODS: 1.6.0

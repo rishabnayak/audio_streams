@@ -1,8 +1,11 @@
 name: audio_streams
-description: A new flutter plugin project.
-version: 0.0.1
-author:
-homepage:
+description: Support for Audio Streams in Flutter
+version: 1.0.0
+authors:
+  - Rishab Nayak <rishab@bu.edu>
+  - Nikzad Khani <nikzad@bu.edu>
+
+homepage: https://github.com/rishab2113/audio_streams/tree/master
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
