@@ -73,7 +73,8 @@ int _parseChannelCount(int count) {
 
 //AVAudioFormat Inputs
 class AudioController extends ValueNotifier<AudioValue> {
-  AudioController(this.commonFormat, this.sampleRate, this.channelCount, this.interleaved)
+  AudioController(
+      this.commonFormat, this.sampleRate, this.channelCount, this.interleaved)
       : super(const AudioValue.uninitialized());
 
   final int sampleRate;
@@ -129,7 +130,9 @@ class AudioController extends ValueNotifier<AudioValue> {
       throw AudioControllerException(e.code, e.message);
     }
     const EventChannel audioChannel = EventChannel('audio');
-    _audioStreamSubscription = audioChannel.receiveBroadcastStream().map((dynamic convert) => List<int>.from(convert));
+    _audioStreamSubscription = audioChannel
+        .receiveBroadcastStream()
+        .map((dynamic convert) => List<int>.from(convert));
     return _audioStreamSubscription;
   }
   //add a completer

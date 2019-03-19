@@ -23,7 +23,7 @@ class _MyAppState extends State<MyApp> {
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initAudio() async {
     await controller.intialize();
-    controller.startAudioStream().listen((onData){
+    controller.startAudioStream().listen((onData) {
       print(onData);
     });
   }
