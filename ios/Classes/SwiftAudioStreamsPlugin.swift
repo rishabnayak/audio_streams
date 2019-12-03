@@ -85,7 +85,7 @@ public class SwiftAudioStreamsPlugin: NSObject, FlutterPlugin, FlutterStreamHand
     }
 
     public func onCancel(withArguments arguments: Any?) -> FlutterError? {
-
+        engine.inputNode.removeTap(onBus: 0)
         engine.stop()
 
         return nil
