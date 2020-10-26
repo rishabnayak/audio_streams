@@ -18,6 +18,14 @@ public class SwiftAudioStreamsPlugin: NSObject, FlutterPlugin, FlutterStreamHand
 
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         if(call.method == "initialize"){
+            do{
+            let audioSession = AVAudioSession.sharedInstance()
+            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord,
+                                         with:AVAudioSessionCategoryOptions.defaultToSpeaker)
+            }
+            catch /* let error as NSError */ {
+                // handle error here
+            }
             let args = call.arguments as! [String: Any]
             switch args["commonFormat"] as! String{
             case "AVAudioCommonFormat.pcmFormatInt16":

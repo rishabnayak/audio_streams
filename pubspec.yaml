@@ -3,15 +3,13 @@ description: Support for Audio Streams in Flutter.
     Capable of streaming Linear PCM format with a bit depth of 16 bits
     and 32 bits. Streams microphone audio data as Stream<List<Int>>.
 
-version: 1.0.0+2
-authors:
-  - Rishab Nayak <rishab@bu.edu>
-  - Nikzad Khani <nikzad@bu.edu>
+version: 1.0.1
 
 homepage: https://github.com/rishab2113/audio_streams/tree/master
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
+  flutter: ">=1.12.0 <2.0.0"
 
 dependencies:
   flutter:
@@ -31,8 +29,12 @@ flutter:
   # be modified. They are used by the tooling to maintain consistency when
   # adding or updating assets for this project.
   plugin:
-    androidPackage: com.example.audio_streams
-    pluginClass: AudioStreamsPlugin
+    platforms:
+      android:
+        package: com.example.audio_streams
+        pluginClass: AudioStreamsPlugin
+      ios:
+        pluginClass: AudioStreamsPlugin
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
